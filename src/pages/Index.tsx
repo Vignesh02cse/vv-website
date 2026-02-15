@@ -1,5 +1,13 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Terminal, LayoutDashboard, Mail, Linkedin, MapPin, Sparkles } from "lucide-react";
+import {
+  ArrowRight,
+  Terminal,
+  LayoutDashboard,
+  Mail,
+  Linkedin,
+  MapPin,
+  Sparkles,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 import { AnimatedSection } from "@/components/common/AnimatedSection";
 import { useEffect, useState } from "react";
@@ -28,8 +36,10 @@ function Counter({ target }: { target: number }) {
     const step = Math.ceil(target / (duration / 16));
     const timer = setInterval(() => {
       start += step;
-      if (start >= target) { setCount(target); clearInterval(timer); }
-      else setCount(start);
+      if (start >= target) {
+        setCount(target);
+        clearInterval(timer);
+      } else setCount(start);
     }, 16);
     return () => clearInterval(timer);
   }, [target]);
@@ -47,7 +57,12 @@ const Index = () => {
           className="absolute text-2xl md:text-3xl select-none pointer-events-none opacity-20"
           style={{ left: item.x, top: item.y }}
           animate={{ y: [0, -12, 0] }}
-          transition={{ duration: 3, delay: item.delay, repeat: Infinity, ease: "easeInOut" }}
+          transition={{
+            duration: 3,
+            delay: item.delay,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
         >
           {item.icon}
         </motion.div>
@@ -77,8 +92,13 @@ const Index = () => {
               Software Engineer • AI Engineer • Backend Developer
             </p>
             <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4 justify-center md:justify-start">
-              <span className="flex items-center gap-1"><MapPin size={14} /> India</span>
-              <span className="flex items-center gap-1"><Sparkles size={14} className="text-emerald-400" /> Open to opportunities</span>
+              <span className="flex items-center gap-1">
+                <MapPin size={14} /> India
+              </span>
+              <span className="flex items-center gap-1">
+                <Sparkles size={14} className="text-emerald-400" /> Open to
+                opportunities
+              </span>
             </div>
           </AnimatedSection>
 
@@ -90,19 +110,29 @@ const Index = () => {
 
           <AnimatedSection delay={0.35}>
             <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mb-8">
-              Specialized in backend engineering, APIs, system design, and AI-powered applications.
+              Specialized in backend engineering, APIs, system design, and
+              AI-powered applications.
             </p>
           </AnimatedSection>
 
           <AnimatedSection delay={0.4}>
             <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start mb-12">
-              <Link to="/work" className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl gradient-bg text-primary-foreground font-semibold hover:opacity-90 transition-opacity">
+              <Link
+                to="/work"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl gradient-bg text-primary-foreground font-semibold hover:opacity-90 transition-opacity"
+              >
                 Explore Work <ArrowRight size={18} />
               </Link>
-              <Link to="/dashboard" className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl glass hover:glow-border font-semibold transition-all duration-300">
+              <Link
+                to="/dashboard"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl glass hover:glow-border font-semibold transition-all duration-300"
+              >
                 <LayoutDashboard size={18} /> Open Dashboard
               </Link>
-              <Link to="/contact" className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl glass hover:glow-border-accent font-semibold transition-all duration-300">
+              <Link
+                to="/contact"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl glass hover:glow-border-accent font-semibold transition-all duration-300"
+              >
                 <Mail size={18} /> Contact
               </Link>
             </div>
@@ -112,11 +142,16 @@ const Index = () => {
           <AnimatedSection delay={0.5}>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-12">
               {stats.map((stat) => (
-                <div key={stat.label} className="glass rounded-xl p-4 text-center">
+                <div
+                  key={stat.label}
+                  className="glass rounded-xl p-4 text-center"
+                >
                   <div className="text-2xl font-black gradient-text">
                     <Counter target={stat.value} />
                   </div>
-                  <div className="text-xs text-muted-foreground mt-1">{stat.label}</div>
+                  <div className="text-xs text-muted-foreground mt-1">
+                    {stat.label}
+                  </div>
                 </div>
               ))}
             </div>
@@ -125,7 +160,7 @@ const Index = () => {
           {/* LinkedIn Card */}
           <AnimatedSection delay={0.6}>
             <a
-              href="https://linkedin.com/in/vignesh-v"
+              href="https://linkedin.com/in/vignesh-v-cse/"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-4 glass rounded-2xl p-4 pr-6 hover:glow-border transition-all duration-300 group"
@@ -134,10 +169,17 @@ const Index = () => {
                 <Linkedin size={24} className="text-[hsl(221,70%,50%)]" />
               </div>
               <div className="text-left">
-                <div className="text-sm font-bold text-foreground group-hover:gradient-text transition-all">Vignesh V</div>
-                <div className="text-xs text-muted-foreground">Software Engineer | Connect on LinkedIn</div>
+                <div className="text-sm font-bold text-foreground group-hover:gradient-text transition-all">
+                  Vignesh V
+                </div>
+                <div className="text-xs text-muted-foreground">
+                  Software Engineer | Connect on LinkedIn
+                </div>
               </div>
-              <ArrowRight size={16} className="text-muted-foreground group-hover:translate-x-1 transition-transform" />
+              <ArrowRight
+                size={16}
+                className="text-muted-foreground group-hover:translate-x-1 transition-transform"
+              />
             </a>
           </AnimatedSection>
         </div>
